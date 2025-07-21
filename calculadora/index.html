@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Simples</title>
+    <script src="calculadora.html"></script>
+</head>
+
+<body>
+
+    <h1>Calculadora</h1>
+
+    <label for="num1">Digite o primeiro número:</label>
+    <input type="number" id="num1"><br><br>
+
+    <label for="num2">Digite o segundo número:</label>
+    <input id="num2" type="number"><br><br>
+
+    <button onclick="calcular('soma')">Somar</button>
+    <button onclick="calcular('subtracao')">Subtrair</button>
+    <button onclick="calcular('multiplicacao')">Multiplicar</button>
+    <button onclick="calcular('divisao')">Dividir</button>
+
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+
+    
+</body>
+
+</html>
