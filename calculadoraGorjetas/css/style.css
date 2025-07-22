@@ -45,15 +45,15 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: var(--space-m);
     margin-bottom: var(--space-s);
     color: var(--clr-primary);
     text-align: center;
 }
 
 .card-label {
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    font-size: var(--space-s);
+    margin-bottom: var(--space-xs);
 }
 
 .card-input {
