@@ -25,8 +25,8 @@ const calcularGorjeta = () => {
     const valorTotal = valorDaConta + valorDaGorjeta;
 
     // Expõe o resultado
-    resultadoGorjeta.textContent = `Gorjeta: R$ ${valorDaGorjeta.toFixed(2)}`;
-    resultadoTotal.textContent = `Total com gorjeta: R$ ${valorTotal.toFixed(2)}`;
+    resultadoGorjeta.innerText = `Gorjeta: R$ ${valorDaGorjeta.toFixed(2)}`;
+    resultadoTotal.innerText = `Total com gorjeta: R$ ${valorTotal.toFixed(2)}`;
 };
 
 btnCalcular.addEventListener('click', calcularGorjeta);

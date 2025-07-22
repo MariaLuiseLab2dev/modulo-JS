@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', Verdana, sans-serif;
+}
+
+:root {
+    --clr-bg: #f0f2f5;
+    --clr-primary: #30484f;
+    --clr-accent: #ffcc00;
+    --clr-text: #333;
+
+    --space-xs: 0.5rem;
+    --space-s: 1rem;
+    --space-m: 2rem;
+    --radius: 1rem;
+
+    --transition: 0.3s ease;
+    --font-base: 'Lucida Sans', Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-bg);
+    font-family: var(--font-base);
+    color: var(--clr-text);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: var(--radius);
+    padding: var(--space-m);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-s);
+    color: var(--clr-primary);
+    text-align: center;
+}
+
+.card-label {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-input {
+    margin-bottom: var(--space-s);
+    padding: var(--space-xs);
+    border-radius: var(--radius);
+}
+
+.card-botao {
+    background: var(--clr-primary);
+    color: white;
+    padding: var(--space-s);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.card-botao:hover {
+    background: var(--clr-accent);
+    transform: translateY(-2px);
+}
+
+.card-input:focus {
+    outline: 2px solid var(--clr-accent);
+    box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.3);
+}
+
+.badge {
+    display: inline-block;
+    margin: var(--space-xs);
+    padding: var(--space-xs) var(--space-s);
+    border-radius: var(--radius);
+    background: var(--clr-accent);
+    color: var(--clr-primary);
+    transform: scale(0.95);
+    transition: transform var(--transition);
+}

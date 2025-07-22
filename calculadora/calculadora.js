@@ -14,7 +14,7 @@ function calcular(op) {
 
     if (isNaN(numero1) || isNaN(numero2)) { // se qualquer um dos dois números não for um número
         alert("digite dois números válidos.");
-        return; // retorna nada (void)
+        return; // retorna nada (void) e finaliza.
     } else if (numero1) {
         
     }
