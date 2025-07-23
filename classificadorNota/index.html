@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="classificadorNotas.js"></script>
+    <link rel="stylesheet" href="/classificadorNota/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+        <div class="container">
+            <h2>Sistema de Classificação de Notas</h2>
+            <label for="nota">Digite a nota (0 a 100):</label>
+            <input type="number" id="nota" placeholder="Ex: 85" min="0" max="100" />
+            <button onclick="verificarNota()" >Classificar Nota</button>
+            <div id="resultado"></div>
+        </div>
+</body>
+
+</html>

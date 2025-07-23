@@ -1,17 +1,15 @@
 /**
  * ### **~~Exercício 2: Tipos Primitivos~~**
-
-Crie variáveis para cada tipo primitivo:
-
-- String (use template literals)
-- Number (inclua um valor especial como Infinity)
-- Boolean
-- null
-- undefined
-- Symbol
-- BigInt
-
-Exiba o tipo de cada variável usando `typeof`.
+ *
+ * Crie variáveis para cada tipo primitivo:
+ * - String (use template literals)
+ * - Number (inclua um valor especial como Infinity)
+ * - Boolean
+ * - null
+ * - undefined
+ * - Symbol
+ * - BigInt
+ * Exiba o tipo de cada variável usando `typeof`.
  */
 
 let minhaString = "minhaString";
