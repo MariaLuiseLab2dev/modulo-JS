@@ -16,34 +16,24 @@
 
 function verificarElegibilidade() {
     let idade = Number(document.getElementById("idade").value.trim());
-    let opcaoSelecionadaCNH = document.querySelector('input[name="CNH"]:checked');
+    let opcaoSelecionadaCNH = document.querySelector('input[name="CNH"][value="Sim"]:checked'); // verifica se um valor Sim está checado
 
     //Não possui CNH?
     if (!opcaoSelecionadaCNH) {
         document.getElementById("resultado").textContent = "Não pode dirigir.";
-    return;
+        return;
     }
 
     // possui CNH? 
-    if(opcaoSelecionadaCNH) {
-        let resultado;
-        if (idade >= 21) {
-            document.getElementById("resultado").textContent = "Pode alugar e dirigir!";
-            return;
-        }
-
-        if(idade >= 18) {
-            document.getElementById("resultado").textContent = "Pode dirigir mas não pode alugar!";
-            return;
-        }
+    if (idade >= 21) {
+        document.getElementById("resultado").textContent = "Pode alugar e dirigir!";
+        return;
     }
-    
+
+    if(idade >= 18) {
+        document.getElementById("resultado").textContent = "Pode dirigir mas não pode alugar!";
+        return;
+    }
 }
+    
 
-
-// console.log(verificarElegibilidade(20, false));
-// console.log(verificarElegibilidade(17, true));
-// console.log(verificarElegibilidade(21, true));
-// console.log(verificarElegibilidade(18, true));
-
-//Guard clauseless
