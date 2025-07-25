@@ -47,8 +47,11 @@ function verificarEStoque() {
             produtosParaReposicao.push(produto);  
         } 
     }
-    console.log("Produtos para reposição: \n");
-    console.log(produtosParaReposicao);
+    console.log("---------- Produtos para reposição ----------");
+    for (let index = 0; index < produtosParaReposicao.length; index++) {
+        const produto = produtosParaReposicao[index];
+        console.log(`${index} - ${produto.nome} | qtd: ${produto.quantidade} | qtd mínima: ${produto.estoqueMinimo}`)
+    }
 }
 
 verificarEStoque();
