@@ -7,7 +7,6 @@
  * Dica: Você precisará de uma variável para armazenar o número do usuário 
  * e um loop for que conte de 1 a 10.
  */
-const prompt = require('prompt-sync')(); // importa o prompt-sync
 
 function tabuada() {
     let numero = prompt("Por favor, digite um número para calcular a tabuada.");

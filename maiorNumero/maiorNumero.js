@@ -15,7 +15,7 @@
 function maiorNumero() {
     const numeros = [1,2,3,4,8.5,7,6];
     let maiorNumero = numeros[0];
-    maiorNumeroConvertido = parseFloat(maiorNumero);
+    maiorNumeroConvertido = Number(maiorNumero);
 
     // Number.MIN_VALUE  -> o menor npumero do javascript
     

@@ -2,9 +2,9 @@
 // procure uma fruta dentro do array frutas
 
 const procurarFruta = () => {
-    const frutas = ["Maçã", "Banana", "Laranja", "Morango"];
+    const frutas = ["Maçã ", "Banana", "Laranja", "Morango"];
 
-    let frutaQuerida = "banana";
+    let frutaQuerida = "Banana";
 
     for (let index = 0; index < frutas.length; index++) { // percorra todo o array
         if (frutaQuerida.toLowerCase() === frutas[index].toLowerCase()) {
