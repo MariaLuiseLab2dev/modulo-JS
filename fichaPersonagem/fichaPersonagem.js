@@ -1,11 +1,10 @@
 /**
  * 
-Tarefa: Escreva um código que:
-
-Use Object.keys() para imprimir no console um cabeçalho "Atributos do Personagem:" 
-seguido por uma lista de todos os atributos (chaves).
-Use Object.values() para imprimir no console um cabeçalho "Valores dos Atributos:" 
-seguido por uma lista de todos os valores.
+ * Tarefa: Escreva um código que:
+ * Use Object.keys() para imprimir no console um cabeçalho "Atributos do Personagem:" 
+ * seguido por uma lista de todos os atributos (chaves).
+ * Use Object.values() para imprimir no console um cabeçalho "Valores dos Atributos:" 
+ * seguido por uma lista de todos os valores.
 
  */
 

@@ -10,7 +10,10 @@ console.log(precos);
 // console.log(valoresPrecos);
 // for (const preco of valoresPrecos) {
 //     let precoEmFloat = preco / 100;
-//     let precoEmReais = new Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(precoEmFloat)
+//     let precoEmReais = new Intl.NumberFormat(
+//      "pt-BR", 
+//      {style: "currency", currency: "BRL"})
+//      .format(precoEmFloat)
 //     console.log(precoEmReais);
 // }
 
@@ -19,7 +22,7 @@ console.log(ProdutosComPrecosAjustados);
 
 for (const [produto, preco] of Object.entries(precos)) { // para cada par de chave valor do objeto precos
     let precoEmFloat = preco / 100;
-    let precoEmReais = new Intl.NumberFormat(
+    let precoEmReais = Intl.NumberFormat(
         "pt-BR", // locales - identifica a localidade pra formatar (coloca o R$ e a vírhgula)
          {style: "currency", currency: "BRL"}
         ) // estilo moeda e passa a moeda que quer

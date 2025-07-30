@@ -29,9 +29,8 @@ const produtos = [
 ];
 
 let contagemCategorias = {};
-let produto = produtos[0];
+// let produto = produtos[0];
 // console.log(produto);
-let contador = 0;
 
 for (const produto of produtos) {
     if (contagemCategorias[produto.categoria]) { // se existe a categoria tal em um produto
