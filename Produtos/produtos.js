@@ -62,8 +62,8 @@ const nomeProdutos = produtos.map(function(produto) {
 
 const nomeProdutos1 = produtos.map(produto => produto.nome);
 
-console.log(nomeProdutos);
-console.log(nomeProdutos1);
+// console.log(nomeProdutos);
+console.log("----- DESAFIO 1: -----\n", nomeProdutos1);
 
 /**
  * Desafio 2: 
@@ -79,11 +79,11 @@ const categoriaEletronicos = produtos.filter(function(produto) {
     }
 });
 
-console.log(categoriaEletronicos);
+// console.log( categoriaEletronicos);
 
 const categoriaEletronicos1 = produtos.filter( (produto) => produto.categoria === "Eletrônicos");
 
-console.log(categoriaEletronicos1);
+console.log("----- DESAFIO 2: -----\n", categoriaEletronicos1);
 
 /**
  * Desafio 3: 
@@ -115,7 +115,14 @@ const valorTotalEstoqueRoupas = produtos
     return valorTotal;
 },0);
 
-// transforma em arrowFunction
+// TRANSFORMA EM ARROWFUNCTION
+const valorTotalEstoqueRoupas1 = produtos
+    .filter(produto => produto.categoria === "Roupas")
+    .map(produto => produto.preco * produto.estoque)
+    .reduce((acc, valorProduto) => acc + valorProduto, 0);
+
+console.log("----- DESAFIO 3: -----\n", ` A soma dos valores de produtos de equipamento é: de R$${valorTotalEstoqueRoupas1}`);
+
 
 /**
  * Desafio 4: Agrupar por Categoria 
@@ -148,14 +155,14 @@ console.log(agruparProdutoPorCategoria);
 // Agora faz em ArrowFunction
 const agruparProdutoPorCategoriaArrowFunction = produtos.reduce( (acc, produto) => {
     let categoriaProduto = produto.categoria;
-    // console.log(categoriaProduto);
 
-    if (!acc[categoriaEletronicos]) {
-        acc[categoriaProduto] = [];
+    if (!acc[categoriaProduto]) { // se não existe aquela categoria dentro do acumulador
+        acc[categoriaProduto] = []; // inicia um array dentro dele
     }
-    acc[categoriaProduto].push(produto);
+    acc[categoriaProduto].push(produto); // se existir você adiciona o produto
     return acc;
 
 },{});
 
-console.log(agruparProdutoPorCategoriaArrowFunction);
+console.log("----- DESAFIO 4: -----\n", agruparProdutoPorCategoriaArrowFunction);
+

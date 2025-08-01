@@ -15,6 +15,7 @@ for (const [_, mes] of Object.entries(aniversarios)) {
     //     contagem[mes] = 1; // contagem recebe 1
     // }
 
+    // evite ter else! inverte lógica faça o não primeiro, atribua 0 e depois some + 1
     if(!contagem[mes]) {
         contagem[mes] = 0;
     }
@@ -23,4 +24,3 @@ for (const [_, mes] of Object.entries(aniversarios)) {
 }
 console.log(contagem);
 
-// evite ter else! inverte lógica faça o não primeiro, atribua 0 e depois some + 1
