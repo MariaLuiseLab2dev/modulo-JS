@@ -36,11 +36,10 @@
 //   }
 // );
 
-
 const buscarUsuarioPromise = ((id) => {
     return new Promise((resolve, reject) => {
 
-        if (isNaN(id) || id <= 0 || !Number.isInteger(id)) {
+        if (isNaN(id) || id <= 0 || !Number.isInteger(id)) { // verificar se o id é um número, um double ou um número negativo
             return reject({ mensagem: "id inválido." });
         }
         setTimeout(() => {
@@ -65,7 +64,7 @@ const buscarUsuarioPromise = ((id) => {
     });
 });
 
-buscarUsuarioPromise(1.1)
+buscarUsuarioPromise(2.3)
     .then(resposta => { // quando mensagem, dados e status estiverem prontos
         console.log(resposta);              
     })
@@ -77,14 +76,15 @@ buscarUsuarioPromise(8)
 .then(resposta => console.log(resposta))
 .catch(erro => console.log(erro.mensagem));
 
-
 const exibirUsuario = async (id) => { // essa funcao é asincrona
     try {
         let resposta = await buscarUsuarioPromise(id); //espera buscar o usuario
         console.log(resposta);
     } catch (error) {
         console.error(error.mensagem);
-    } 
+    }
 }
 
 exibirUsuario(10);
+
+// estudo: Auth2 e OData
