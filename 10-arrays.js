@@ -30,7 +30,7 @@ let frutas = ["Banana", "Goiaba", "Maçã", "Manga"];
 console.log(frutas.length); // Saída: 4
 
 
-SINTAXE
+// SINTAXE
 
 array.forEach(function(elemento, indice, arrayCompleto) {
   // código a ser executado para cada elemento
