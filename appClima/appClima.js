@@ -16,16 +16,15 @@ const alertMsg = document.getElementById("alertMsg");
 const alertCloseBtn = document.getElementById("alertCloseBtn");
 
 function mostrarAlert(msg) {
-  alertMsg.innerText = msg;
-  alertCustom.classList.remove("escondido");
+    alertMsg.innerText = msg;
+    alertCustom.classList.remove("escondido");
 }
 
 function esconderAlert() {
-  alertCustom.classList.add("escondido");
+    alertCustom.classList.add("escondido");
 }
 
 alertCloseBtn.addEventListener("click", esconderAlert);
-
 
 const opcoesDeUf = document.getElementById("opcoesUF");
 const ufSelecionada = opcoesDeUf.value;
@@ -84,7 +83,6 @@ const buscarUF = async () => {
             opcoesDeUf.appendChild(option);
         });
 
-        // garante que o placeholder esteja selecionado
         opcoesDeUf.selectedIndex = 0;
 
         // quando o usuário mudar o valor do estado traga as cidades daquele estado
@@ -160,20 +158,21 @@ const buscarCoordenadas = async (cidadeSelecionada) => {
             return false;
         });
 
-        // se não tem admin2 nem admin1, pega o primeiro
+        
         if (localEncontrado) {
             coordenadaEncontrada = {
             latitude: localEncontrado.latitude,
             longitude: localEncontrado.longitude 
             }
         } else {
+            // se não tem admin2 nem admin1, pega o primeiro
             const primeiro = dados.results[0];
             coordenadaEncontrada = {
             latitude: primeiro.latitude,
             longitude: primeiro.longitude
             }
         }
-        
+
         return coordenadaEncontrada;  
     } catch (error) {
         console.error("Erro ao buscar as coordenadas:", error);
