@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="buscaUfCidade">
+    <div class="buscaUfCidade" id="containerDeBusca">
         <div class="campos-container">
             <div class="campo">
                 <label for="opcoesUF">Estado</label>
@@ -23,11 +23,21 @@
             </div>
         </div>
     </div>
-    <div class="botao-container">
-            <button id="btnBuscarClima">Consultar</button>
+    <div class="botao-container" id="containerDoBotao">
+        <button id="btnBuscarClima">Consultar</button>
     </div>
 
-    <div id="resultadoClima"></div>
+    <div id="alertCustom" class="alert-custom escondido">
+        <p id="alertMsg"></p>
+        <button id="alertCloseBtn">Fechar</button>
+    </div>
+
+    <div id="loader" class="loader"></div>
+    <div class="resultados escondido" id="resultadosContainer"> 
+        <h1 id="temperaturaAtual"></h1>
+        <p id="velocidadeVento"></p>
+        <button id="btnVoltar" class="btn-voltar">Voltar</button>
+    </div>
 </body>
 
 </html>
