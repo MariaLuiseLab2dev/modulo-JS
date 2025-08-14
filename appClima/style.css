@@ -21,16 +21,33 @@ body {
 	color: #e6eef8;
 }
 
+.tema-noite h1,
+.tema-noite #temperaturaAtual {
+	color: #ffffff;
+	transition: color 200ms ease;
+}
+
 .tema-dia label,
 .tema-noite label {
-	color: #000; 
+	color: #2d2d2d; 
+}
+
+.tema-dia #resultadosContainer .caixa-info {
+	background-color: rgba(255,255,255,0.85);
+	color: #111;
+}
+.tema-noite #resultadosContainer .caixa-info {
+	background-color: rgba(255,255,255,0.06);
+	color: #e6eef8;
 }
 
 p {
 	padding: 10px;
-	background-color: rgba(255, 255, 255, 0.8);
-	border-radius: 10px; 
-	margin: 5px 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 25px; 
+	margin: 10px 0;
+    max-width: fit-content;
+    height: 5rem;
 }
 
 .buscaUfCidade {
@@ -68,13 +85,13 @@ select {
     font-size: 0.7rem;
 }
 
-.botao-container, .resultados {
+.botao-container {
     max-width: 600px;
     margin: 0 auto; 
     text-align: center;
     padding-top: 0.5rem;
     display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 #btnBuscarClima {
@@ -88,8 +105,72 @@ select {
     cursor: pointer;
 }
 
+#resultadosContainer {
+	max-width: 1100px;
+	margin: 1.5rem auto;
+	padding: 1rem;
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+.resultado-esquerda {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	min-width: 220px;
+}
+
+
+#temperaturaAtual {
+	font-size: 4.5rem;
+	margin: 0;
+	line-height: 1;
+}
+
+
+#imagemClima {
+	width: 120px;
+	height: auto;
+	display: block;
+}
+
+
+.info-container {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.caixa-info {
+	background-color: rgba(255,255,255,0.6);
+	padding: 10px 14px;
+	border-radius: 22px;
+	min-height: 56px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
 #btnBuscarClima:hover {
     background-color: #357ab8;
+}
+
+.voltar-wrap { 
+    text-align: center; 
+}
+.btn-voltar { 
+    display: inline-block; 
+    margin: 0; 
 }
 
 .btn-voltar {
@@ -105,6 +186,7 @@ select {
 .btn-voltar:hover {
     color: #357ab8;
 }
+
 .btn-voltar.visivel {
     display: inline-block;
 }

@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="botao-container" id="containerDoBotao">
-        <button id="btnBuscarClima">buscar</button>
+        <button id="btnBuscarClima">BUSCAR</button>
     </div>
 
     <div id="alertCustom" class="alert-custom escondido">
@@ -34,15 +34,23 @@
 
     <div id="loader" class="loader"></div>
     <div id="resultadosContainer">
-        <p id="temperaturaAtual"></p>
-        <p id="velocidadeVento"></p>
-        <p id="direcaoVento"></p>
-        <p id="ehDia"></p>
-        <p id="codigoTempo"></p>
-        <p id="horarioAtual"></p>
-        <p id="latitude"></p>
-        <p id="longitude"></p>
-        <button id="btnVoltar" class="btn-voltar">Voltar</button>
+        <div class="resultado-esquerda">
+		    <span id="codigoTempo"></span>
+		    <img id="imagemClima" src="" alt="Ícone do clima">
+		    <h1 id="temperaturaAtual"></h1>
+	    </div>
+        
+        <div class="info-container"> 
+            <div class="caixa-info"><span id="velocidadeVento"></span></div>
+		    <div class="caixa-info"><span id="direcaoVento"></span></div>
+		    <div class="caixa-info"><span id="horarioAtual"></span></div>
+		    <div class="caixa-info"><span id="latitude"></span></div>
+		    <div class="caixa-info"><span id="longitude"></span></div>
+        </div>
+
+        <div class="voltar-wrap">
+            <button id="btnVoltar" class="btn-voltar">Voltar</button>
+        </div>
     </div>
 </body>
 </html>

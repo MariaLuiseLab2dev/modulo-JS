@@ -26,6 +26,7 @@ const containerDeBusca = document.getElementById("containerDeBusca");
 const containerDoBotao = document.getElementById("containerDoBotao");
 const resultadosContainer = document.getElementById("resultadosContainer");
 
+const imgElemento = document.getElementById("imagemClima");
 const climaElementos = {
 	temperaturaAtual: document.getElementById("temperaturaAtual"),
 	velocidadeVento: document.getElementById("velocidadeVento"),
@@ -35,6 +36,34 @@ const climaElementos = {
 	horarioAtual: document.getElementById("horarioAtual"),
 	latitude: document.getElementById("latitude"),
 	longitude: document.getElementById("longitude"),
+};
+
+const codigoTempoIcone = {
+    0:  { nome: "Céu limpo", imagem: "images/sol-ceu-limpo.png" },
+    1:  { nome: "Principalmente limpo", imagem: "images/sol-ceu-limpo.png" },
+    2:  { nome: "Parcialmente nublado", imagem: "images/nublado-com-sol.png" },
+    3:  { nome: "Nublado", imagem: "images/nublado-sem-sol.png" },
+    45: { nome: "Nevoeiro", imagem: "images/nuvem-sem-sol.png" },
+    48: { nome: "Nevoeiro com gelo", imagem: "images/nuvem-geada.png" },
+    51: { nome: "Chuvisco leve", imagem: "images/nuvem-sol-com-chuva.png" },
+    53: { nome: "Chuvisco moderado", imagem: "images/nuvem-sol-com-chuva.png.png" },
+    55: { nome: "Chuvisco intenso", imagem: "images/nuvem-sol-com-chuva.png.png" },
+    61: { nome: "Chuva fraca", imagem: "images/nuvem-sol-com-chuva.png.png" },
+    63: { nome: "Chuva moderada", imagem: "images/nuvem-sol-com-chuva.png.png" },
+    65: { nome: "Chuva forte", imagem: "images/nuvem-trovoada.png" },
+    66: { nome:"Chuva de granizo leve", imagem: "images/nuvem-geada.png"},
+    67: {nome: "Chuva de granizo forte", imagem: "images/nuvem-geada.png"},
+    71: { nome:"Nevasca leve", imagem: "images/nuvem-neve.png"},
+    73: {nome: "Nevasca moderada", imagem: "images/nuvem-neve.png"},
+    75: {nome: "Nevasca forte", imagem: "images/termometro-neve.png"},
+    80: { nome: "Pancadas de chuva leves", imagem: "images/nuvem-chuva.png" },
+    81: { nome: "Pancadas de chuva moderada", imagem: "images/nuvem-chuva.png" },
+    82: { nome: "Pancadas de chuva fortes", imagem: "images/nuvem-chuva.png" },
+    85: { nome: "Pancadas de neve leves", imagem: "images/nuvem-neve.png" },
+    86: { nome: "Pancadas de neve fortes", imagem: "images/nuvem-neve.png" },
+    95: { nome: "Trovoada", imagem: "images/trovoada.png" },
+    96: { nome: "Trovoada com granizo leve", imagem: "images/trovoada.png"},
+    99: { nome: "Trovoada com granizo leve", imagem: "images/trovoada.png" }
 };
 
 /* ---------- Helpers de UI ---------- */
@@ -80,19 +109,21 @@ const atualizaClima = (clima) => {
 	const climaUnidade = clima.current_weather_units || {};
 
     aplicarTemaDiaNoite(climaAtual.is_day);
+    
+    const infoCodigo = codigoTempoIcone[climaAtual.weathercode];
+    const nomeClima = infoCodigo ? infoCodigo.nome : "Condição desconhecida";
+    const imagemClima = infoCodigo ? infoCodigo.imagem : "images/sol-ceu-limpo.png";
 
 	const maps = {
-		temperaturaAtual: `Temperatura Atual: ${climaAtual.temperature}${climaUnidade.temperature || ""}`,
+		temperaturaAtual: `${climaAtual.temperature}${climaUnidade.temperature || ""}`,
 		velocidadeVento: `Velocidade do Vento: ${climaAtual.windspeed}${climaUnidade.windspeed || ""}`,
 		direcaoVento: `Direção do Vento: ${climaAtual.winddirection}${climaUnidade.winddirection || ""}`,
 		ehDia: climaAtual.is_day === 1 ? "É dia!" : "É noite!" || "",
-		codigoTempo: `Código do tempo: ${climaAtual.weathercode}`,
+		codigoTempo: `${nomeClima}`,
 		horarioAtual: "Horário: "+formatarHorario(climaAtual.time) || "",
 		latitude: "Latitude: "+clima.latitude || "",
 		longitude: "Longitude: "+clima.longitude || "",
 	};
-
-    
 
 	for (const chave in maps) {
 		const el = climaElementos[chave];
@@ -100,6 +131,11 @@ const atualizaClima = (clima) => {
 			el.textContent = maps[chave];
 		}
 	}
+
+    if (imgElemento) {
+        imgElemento.src = imagemClima;
+        imgElemento.alt = nomeClima;
+    }
 };
 
 /* ---------- Função genérica de fetch com tratamento e transformação em json---------- */
@@ -246,25 +282,20 @@ const mostrarResultadosUI = () => {
 };
 
 const restaurarUI = () => {
-	// reabilita selects e botão de busca
 	opcoesDeUf.disabled = false;
 	opcoesDeCidades.disabled = false;
 	btnBuscarClima.disabled = false;
 
-	// mostra o botão de buscar novamente
 	containerDoBotao.classList.remove("escondido");
 
-	// esconde os resultados e o botão voltar
 	resultadosContainer.classList.add("escondido");
 	btnVoltar.classList.remove("visivel");
 
-	// limpa textos antigos dos resultados
 	for (const chave in climaElementos) {
 		const el = climaElementos[chave];
 		if (el) el.textContent = "";
 	}
 
-	// garante que o loader esteja escondido
 	esconderLoader();
 };
 
@@ -288,6 +319,11 @@ const iniciarBuscaClima = async () => {
 
 		// atualiza os elementos e mostra resultados
 		atualizaClima(clima);
+
+        // busca e mostra a previsão horária do dia atual
+        const hourly = await buscarPrevisaoHoraria(coords.latitude, coords.longitude);
+        // renderPrevisaoHoraria(hourly);
+
 		mostrarResultadosUI();
 	} catch (error) {
 		// em caso de erro, avisa o usuário e restaura a UI
