@@ -1,15 +1,3 @@
-// 1º - retornar as informações de todos os estados do Brasil
-// https://brasilapi.com.br/api/ibge/uf/v1
-
-//2º - retornar as informações de todos os municípios daquele estado
-// https://brasilapi.com.br/api/ibge/municipios/v1/{siglaUF}?providers=dados-abertos-br,gov,wikipedia
-
-//3º retornar a latitude e longitude daquela cidade
-// https://geocoding-api.open-meteo.com/v1/search?name=NOME+DA+CIDADE
-
-//4º - retornar o clima daquele munícipio
-// https://api.open-meteo.com/v1/forecast?latitude=-11.01611&longitude=-68.74806&current_weather=true
-
 /* ------------- Seletores do DOM ------------ */
 const opcoesDeUf = document.getElementById("opcoesUF");
 const opcoesDeCidades = document.getElementById("opcoesCidades");
@@ -268,7 +256,6 @@ const prepararUIParaBusca = () => {
 	btnBuscarClima.disabled = true;
 	containerDoBotao.classList.add("escondido");
 
-	// mostra o loader
 	mostrarLoader();
 };
 
@@ -319,10 +306,6 @@ const iniciarBuscaClima = async () => {
 
 		// atualiza os elementos e mostra resultados
 		atualizaClima(clima);
-
-        // busca e mostra a previsão horária do dia atual
-        const hourly = await buscarPrevisaoHoraria(coords.latitude, coords.longitude);
-        // renderPrevisaoHoraria(hourly);
 
 		mostrarResultadosUI();
 	} catch (error) {
